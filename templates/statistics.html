@@ -1,0 +1,25 @@
+<!doctype html>
+<head>
+
+</head>
+<body>
+<a href = "/">Home</a>
+    <table>
+        <thead>
+            <tr>
+                <th>Method</th>
+                <th>Count</th>
+            </tr>
+
+        </thead>
+        <tbody>
+            {% for method, request in requests.items() %}
+            <tr>
+                <td>{{method}}</td>
+                <td>{{request}}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+
+    </table>
+</body>
