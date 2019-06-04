@@ -9,18 +9,15 @@ def route():
     return render_template('index.html')
 
 
-@app.route('/request-counter', methods=['GET', 'POST'])
+@app.route('/request-counter', methods=['GET', 'POST', 'DELETE', 'PUT'])
 def route_request_counter():
-    if request.method == 'POST':
-        data_handler.post += 1
-    if request.method == 'GET':
-        data_handler.get += 1
+    data_handler.increment_request(request.method)
     return redirect(url_for('route'))
 
 
 @app.route('/statistics')
 def route_statistics():
-    return render_template('statistics.html', requests = {'GET': data_handler.get, 'POST': data_handler.post})
+    return render_template('statistics.html', requests = data_handler.read_requests_from_file())
 
 
 if __name__ == '__main__':
