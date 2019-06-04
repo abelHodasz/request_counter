@@ -1,0 +1,8 @@
+<!doctype html>
+<head>
+
+</head>
+<body>
+    <a href = "{{url_for('route_request_counter')}}" method = "GET">Get request</a>
+    <form action = "{{ url_for('route_request_counter)}}" method = "POST"><button type="submit">Post request</button></form>
+</body>

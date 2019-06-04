@@ -6,7 +6,7 @@ app = Flask(__name__)
 
 @app.route('/', methods=['GET', 'POST'])
 def route():
-    pass
+    return render_template('ndex.html')
 
 
 @app.route('/request-counter')
